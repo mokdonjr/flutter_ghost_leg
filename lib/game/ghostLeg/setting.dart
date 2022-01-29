@@ -1,5 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_ghost_leg/game.dart';
+import 'package:flutter_ghost_leg/game/ghostLeg/play.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key, required this.title}) : super(key: key);
@@ -13,6 +15,7 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
 
   int _playerCount = 0;
+  Random random = Random();
 
   void _increasePlayerCount() {
     setState(() {
@@ -34,7 +37,7 @@ class _SettingPageState extends State<SettingPage> {
             appBar: AppBar(
               title: Text(widget.title),
             ),
-            body: GamePage(title: widget.title, playerCount: _playerCount),
+            body: GamePage(title: widget.title, playerCount: _playerCount, random: random),
           );
         }
       )

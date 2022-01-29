@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ghost_leg/setting.dart';
+import 'package:flutter_ghost_leg/game/ghostLeg/setting.dart';
 
 void main() {
   runApp(const MyApp());
