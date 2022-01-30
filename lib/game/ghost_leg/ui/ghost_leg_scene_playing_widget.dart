@@ -1,18 +1,18 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ghost_leg/game/ghostLeg/play.dart';
+import 'package:flutter_ghost_leg/game/ghost_leg/ui/ghost_leg_scene_ending_widget.dart';
 
-class SettingPage extends StatefulWidget {
-  const SettingPage({Key? key, required this.title}) : super(key: key);
+class GhostLegScenePlayingWidget extends StatefulWidget {
+  const GhostLegScenePlayingWidget({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _SettingPageState createState() => _SettingPageState();
+  _GhostLegScenePlayingWidgetState createState() => _GhostLegScenePlayingWidgetState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _GhostLegScenePlayingWidgetState extends State<GhostLegScenePlayingWidget> {
 
   int _playerCount = 0;
   Random random = Random();
@@ -30,18 +30,24 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   void _startGame() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (context) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(widget.title),
-            ),
-            body: GamePage(title: widget.title, playerCount: _playerCount, random: random),
-          );
-        }
-      )
-    );
+    if (_playerCount >= 2) {
+      Navigator.of(context).push(
+          MaterialPageRoute<void>(
+              builder: (context) {
+                return Scaffold(
+                  appBar: AppBar(
+                    title: Text(widget.title),
+                  ),
+                  body: GhostLegSceneEndingWidget(
+                      title: widget.title,
+                      playerCount: _playerCount,
+                      random: random
+                  ),
+                );
+              }
+          )
+      );
+    }
   }
 
   @override
@@ -63,16 +69,18 @@ class _SettingPageState extends State<SettingPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
 
+            // 플레이어 입력 설명
             Container(
               margin: const EdgeInsets.all(_defaultMarginSize),
               child: const Text(
-                "참가자 수",
+                "participants",
                 style: TextStyle(
                   fontSize: 30.0
                 ),
               ),
             ),
 
+            // 플레이어 입력
             Container(
               margin: const EdgeInsets.all(_defaultMarginSize),
               child: Row(
@@ -112,6 +120,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
             ),
 
+            // 플레이어 결정
             Container(
               margin: const EdgeInsets.all(_defaultMarginSize),
               child: ElevatedButton(

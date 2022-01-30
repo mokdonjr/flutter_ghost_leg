@@ -1,4 +1,4 @@
-import 'package:flutter_ghost_leg/game/ghostLeg/point.dart';
+import 'package:flutter_ghost_leg/game/ghost_leg/model/point.dart';
 
 class Line {
   final Point _start;
