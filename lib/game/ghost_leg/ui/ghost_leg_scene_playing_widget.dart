@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ghost_leg/game/ghost_leg/ui/ghost_leg_scene_ending_widget.dart';
 
 class GhostLegScenePlayingWidget extends StatefulWidget {
-  const GhostLegScenePlayingWidget({Key? key, required this.title}) : super(key: key);
+  const GhostLegScenePlayingWidget({Key? key, required this.title, required this.backgroundColor}) : super(key: key);
 
   final String title;
+  final Color backgroundColor;
 
   @override
   _GhostLegScenePlayingWidgetState createState() => _GhostLegScenePlayingWidgetState();
@@ -35,13 +36,15 @@ class _GhostLegScenePlayingWidgetState extends State<GhostLegScenePlayingWidget>
           MaterialPageRoute<void>(
               builder: (context) {
                 return Scaffold(
-                  appBar: AppBar(
-                    title: Text(widget.title),
-                  ),
+                  // appBar: AppBar(
+                  //   title: Text(widget.title),
+                  // ),
+                  backgroundColor: widget.backgroundColor,
                   body: GhostLegSceneEndingWidget(
-                      title: widget.title,
-                      playerCount: _playerCount,
-                      random: random
+                    title: widget.title,
+                    playerCount: _playerCount,
+                    random: random,
+                    backgroundColor: widget.backgroundColor,
                   ),
                 );
               }
@@ -59,9 +62,9 @@ class _GhostLegScenePlayingWidgetState extends State<GhostLegScenePlayingWidget>
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      // appBar: AppBar(
+      //   title: Text(widget.title),
+      // ),
       body: Container(
         alignment: Alignment.center,
         child: Column(

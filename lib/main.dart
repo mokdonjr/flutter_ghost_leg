@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_ghost_leg/game/ghost_leg/ui/ghost_leg_scene_playing_widget.dart';
-import 'package:flutter_ghost_leg/game/rps/ui/rps_scene_playing_widget.dart';
+import 'package:flutter_ghost_leg/game/game_selection.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: const SettingPage(title: 'Flutter Demo Home Page'),
       // home: const Center(child: GhostLegScenePlayingWidget(title: '사다리타기')),
-      home: const Center(child: RpsScenePlayingWidget(title: '가위바위보')),
+      // home: const Center(child: RpsScenePlayingWidget(title: '가위바위보')),
+      home: const Center(child: GameSelectionWidget(title: '게임리스트')),
     );
   }
 }

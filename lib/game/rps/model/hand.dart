@@ -27,9 +27,9 @@ extension HandTypeExtension on HandType {
   String getAssetName() {
     switch (this) {
       case HandType.none: return '';
-      case HandType.rock: return 'scene/rps/rock.png';
-      case HandType.paper: return 'scene/rps/paper.png';
-      case HandType.scissors: return 'scene/rps/scissors.png';
+      case HandType.rock: return 'images/scene/rps/rock.png';
+      case HandType.paper: return 'images/scene/rps/paper.png';
+      case HandType.scissors: return 'images/scene/rps/scissors.png';
     }
   }
 }

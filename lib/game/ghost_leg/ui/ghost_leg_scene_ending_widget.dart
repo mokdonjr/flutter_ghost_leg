@@ -6,11 +6,20 @@ import 'package:flutter_ghost_leg/game/ghost_leg/model/line.dart';
 import 'package:flutter_ghost_leg/game/ghost_leg/model/point.dart';
 
 class GhostLegSceneEndingWidget extends StatefulWidget {
-  const GhostLegSceneEndingWidget({Key? key, required this.title, required this.playerCount, required this.random}) : super(key: key);
+  const GhostLegSceneEndingWidget(
+      {
+        Key? key,
+        required this.title,
+        required this.playerCount,
+        required this.random,
+        required this.backgroundColor,
+      }
+    ) : super(key: key);
 
   final String title;
   final int playerCount;
   final Random random;
+  final Color backgroundColor;
 
   final double _width = 500;
   final double _height = 500;
@@ -78,6 +87,7 @@ class _GhostLegSceneEndingWidgetState extends State<GhostLegSceneEndingWidget> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
+      color: widget.backgroundColor,
       child: CustomPaint(
         // 위젯 크기
         size: Size(

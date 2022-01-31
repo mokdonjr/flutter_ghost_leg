@@ -18,3 +18,15 @@ samples, guidance on mobile development, and a full API reference.
 
 ##Code Convention
 - https://dart.dev/guides/language/effective-dart/style
+
+##Web Develop
+flutter config --enable-web
+flutter devices
+
+##Web localhost
+flutter run -d chrome
+
+##Web Build
+- https://docs.flutter.dev/deployment/web
+- flutter pub upgrade && flutter pub get && flutter clean && flutter build web --web-renderer html --release --base-href="/rps/"
+- 

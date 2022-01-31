@@ -6,9 +6,10 @@ import 'package:flutter_ghost_leg/game/rps/model/hand.dart';
 import 'package:flutter_ghost_leg/game/rps/ui/rps_scene_ending_widget.dart';
 
 class RpsScenePlayingWidget extends StatefulWidget {
-  const RpsScenePlayingWidget({Key? key, required this.title}) : super(key: key);
+  const RpsScenePlayingWidget({Key? key, required this.title, required this.backgroundColor}) : super(key: key);
 
   final String title;
+  final Color backgroundColor;
 
   @override
   _RpsScenePlayingWidgetState createState() => _RpsScenePlayingWidgetState();
@@ -42,13 +43,14 @@ class _RpsScenePlayingWidgetState extends State<RpsScenePlayingWidget> {
         MaterialPageRoute<void>(
             builder: (context) {
               return Scaffold(
-                appBar: AppBar(
-                  title: Text(widget.title),
-                ),
+                // appBar: AppBar(
+                //   title: Text(widget.title),
+                // ),
                 body: RpsSceneEndingWidget(
-                    title: widget.title,
-                    p1HandType: _handType,
-                    p2HandType: _getRandomHandType(),
+                  title: widget.title,
+                  p1HandType: _handType,
+                  p2HandType: _getRandomHandType(),
+                  backgroundColor: widget.backgroundColor,
                 ),
               );
             }
@@ -67,9 +69,10 @@ class _RpsScenePlayingWidgetState extends State<RpsScenePlayingWidget> {
     const double _defaultIconSize = 30.0;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      // appBar: AppBar(
+      //   title: Text(widget.title),
+      // ),
+      backgroundColor: widget.backgroundColor,
       body: Container(
         alignment: Alignment.center,
         child: Column(
